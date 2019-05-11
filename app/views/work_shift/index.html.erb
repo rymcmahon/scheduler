@@ -2,7 +2,10 @@
 <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
 
 
-<table> 
+<%= link_to "Previous", start_date: date_range.first - 1.day %>
+<%= I18n.t("date.month_names")[start_date.month] %>
+<%= link_to "Next", start_date: date_range.last + 1.day %>
+<table>
   <thead>
     <tr>
       <% date_range.slice(0, 7).each do |day| %>
