@@ -25,7 +25,11 @@
       <tr>
         <% week.each do |day| %>
         <td class="day text-right" >
-          <%= day.strftime("%d") %>
+          <% if (start_date.beginning_of_month...start_date.end_of_month).include?(day) %>
+            <span><%= day.strftime("%e") %></span>
+          <% else %>
+            <span id="not-current-month"><%= day.strftime("%e") %></span>
+          <% end %>
         </td>
         <% end %>
       </tr>
