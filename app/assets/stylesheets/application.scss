@@ -10,6 +10,48 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ \
  *= require_tree .
  *= require_self
  */
+
+ @import "font-awesome";
+
+ $primary-cerulean: #0081A3;
+
+ #calendar-head {
+   background-color: $primary-cerulean;
+ }
+
+ #calendar-head th {
+   color: #ffffff;
+   border: none;
+ }
+
+ .month-btn {
+   font-size: 14px;
+ }
+
+ .month {
+   font-size: 38px;
+   margin: 0 20px;
+ }
+
+ .month-arrow-left, .month-arrow-right {
+   font-size: 24px;
+   color: $primary-cerulean;
+ }
+
+ .day {
+   height: 100px;
+  width: 100px;
+ }
+ // .month-arrow-right:hover {
+ //   transform: translateX(5px);
+ //   transition-duration: 0.5s;
+ // }
+ //
+ // .month-arrow-left:hover {
+ //   transform: translateX(-5px);
+ //   transition-duration: 0.5s;
+ // }
