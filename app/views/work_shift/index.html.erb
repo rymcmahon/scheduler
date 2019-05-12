@@ -27,6 +27,9 @@
         <td class="day text-right" >
           <% if (start_date.beginning_of_month...start_date.end_of_month).include?(day) %>
             <span><%= day.strftime("%e") %></span>
+              <% @work_shifts.select{ |ws| ws.starts_at.to_date == day }.each do |work_shift| %>
+                <p class="work-shift-name"><%= "#{work_shift.employee.first_name} #{work_shift.starts_at.strftime('%l:%M')} - #{work_shift.ends_at.strftime('%l:%M')}"%></p>
+              <% end %>
           <% else %>
             <span id="not-current-month"><%= day.strftime("%e") %></span>
           <% end %>
