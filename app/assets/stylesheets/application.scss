@@ -53,14 +53,19 @@ $secondary-red: #e99b9f;
   color: #d1d1d1;
 }
 
-.work-shift-name {
+.shift-name-and-time {
+  display: block;
+  color: #000000;
   margin-bottom: 2px;
   background-color: $secondary-red;
   border-radius: 20px;
-  padding-left: 5px;
-  // color: #ffffff;
-  text-align: left;
+  text-align: center;
   font-size: 13px;
+}
+
+.shift-name-and-time:hover {
+  text-decoration: none;
+  color: #000000;
 }
 // .month-arrow-right:hover {
 //   transform: translateX(5px);
