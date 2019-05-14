@@ -28,7 +28,7 @@
           <% if (start_date.beginning_of_month...start_date.end_of_month).include?(day) %>
             <span><%= day.strftime("%e") %></span>
               <% @work_shifts.select{ |ws| ws.starts_at.to_date == day }.each do |work_shift| %>
-                <a href="#exampleModalCenter" class="shift-name-and-time" data-toggle="modal" data-target="#exampleModalCenter" data: {employee_id: <%=work_shift.employee.id%>}}><%= "#{work_shift.employee.first_name} #{work_shift.starts_at.strftime('%l:%M')} - #{work_shift.ends_at.strftime('%l:%M')}"%></a>
+                <%= link_to "#{work_shift.employee.first_name} #{work_shift.starts_at.strftime('%l:%M')} - #{work_shift.ends_at.strftime('%l:%M')}", work_shift_index_path(employee_id: work_shift.employee.id), 'data-target' => '#exampleModalCenter', class: "shift-name-and-time" %>
               <% end %>
           <% else %>
             <span id="not-current-month"><%= day.strftime("%e") %></span>
@@ -49,7 +49,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <%# <%= form_for @work_shift do |f| %> %>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -59,3 +59,10 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(".shift-name-and-time").on( "click", function() {
+    console.log(<%= j params[:employee_id] %>);
+    $('#exampleModalCenter').modal();
+  });
+</script>
