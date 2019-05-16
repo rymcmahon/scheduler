@@ -29,7 +29,7 @@
             <span><%= day.strftime("%e") %></span>
               <% @work_shifts.select{ |ws| ws.starts_at.to_date == day }.each do |work_shift| %>
 
-                <%= link_to "#{work_shift.employee.first_name} #{work_shift.starts_at.strftime('%l:%M')} - #{work_shift.ends_at.strftime('%l:%M')}", work_shift_index_path(employee_id: work_shift.employee.id), 'data-target' => '#exampleModalCenter', class: "shift-name-and-time", remote: true%>
+                <%= link_to "#{work_shift.employee.first_name} #{work_shift.starts_at.strftime('%l:%M')} - #{work_shift.ends_at.strftime('%l:%M')}", work_shift_index_path(employee_id: work_shift.employee.id, work_shift_id: work_shift.id), 'data-target' => '#exampleModalCenter', class: "shift-name-and-time", remote: true%>
 
               <% end %>
           <% else %>
@@ -42,6 +42,6 @@
     </tbody>
   </table>
   <div id="edit-shift-modal">
-    
+
   </div>
 </div>

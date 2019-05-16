@@ -9,11 +9,11 @@ class WorkShiftController < ApplicationController
   end
 
   def edit
-    @work_shift = WorkShift.find(params[:employee_id])
+    @work_shift = WorkShift.find(params[:work_shift_id])
   end
 
   def update
-    @work_shift = WorkShift.find(params[:employee_id])
+    @work_shift = WorkShift.find(params[:work_shift_id])
     @work_shift.update(starts_at: params[:starts_at])
 
   end
