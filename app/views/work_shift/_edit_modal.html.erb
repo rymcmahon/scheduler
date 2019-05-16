@@ -8,7 +8,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= params[:employee_id] %>
+        <%= form_with url: "/work_shifts/edit/#{params[:employee_id]}", method: :patch do |form| %>
+          <%= form.label :starts_at %><br>
+          <%= form.text_field :starts_at %>
+
+          <%= form.hidden_field :employee_id, value: params[:employee_id] %>
+          <%= form.submit %>
+        <% end %>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

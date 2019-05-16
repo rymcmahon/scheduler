@@ -7,4 +7,14 @@ class WorkShiftController < ApplicationController
       format.js { render partial: 'edit_shift'}
     end
   end
+
+  def edit
+    @work_shift = WorkShift.find(params[:employee_id])
+  end
+
+  def update
+    @work_shift = WorkShift.find(params[:employee_id])
+    @work_shift.update(starts_at: params[:starts_at])
+
+  end
 end
