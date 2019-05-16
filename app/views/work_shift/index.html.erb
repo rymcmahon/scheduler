@@ -25,8 +25,13 @@
       <tr>
         <% week.each do |day| %>
         <td class="day text-right" >
-          <% if (start_date.beginning_of_month...start_date.end_of_month).include?(day) %>
+          <% if (start_date.beginning_of_month...start_date.end_of_month + 1).include?(day) %>
             <span><%= day.strftime("%e") %></span>
+              <% @work_shifts.select{ |ws| ws.starts_at.to_date == day }.each do |work_shift| %>
+
+                <%= link_to "#{work_shift.employee.first_name} #{work_shift.starts_at.strftime('%l:%M')} - #{work_shift.ends_at.strftime('%l:%M')}", work_shift_index_path(employee_id: work_shift.employee.id), 'data-target' => '#exampleModalCenter', class: "shift-name-and-time", remote: true%>
+
+              <% end %>
           <% else %>
             <span id="not-current-month"><%= day.strftime("%e") %></span>
           <% end %>
@@ -36,4 +41,7 @@
       <% end %>
     </tbody>
   </table>
+  <div id="edit-shift-modal">
+    
+  </div>
 </div>

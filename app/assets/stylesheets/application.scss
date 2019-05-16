@@ -18,6 +18,8 @@
 @import "font-awesome";
 
 $primary-cerulean: #0081A3;
+$primary-red: #B2282E;
+$secondary-red: #e99b9f;
 
 #calendar-head {
   background-color: $primary-cerulean;
@@ -49,6 +51,21 @@ $primary-cerulean: #0081A3;
 
 #not-current-month {
   color: #d1d1d1;
+}
+
+.shift-name-and-time {
+  display: block;
+  color: #000000;
+  margin-bottom: 2px;
+  background-color: $secondary-red;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.shift-name-and-time:hover {
+  text-decoration: none;
+  color: #000000;
 }
 // .month-arrow-right:hover {
 //   transform: translateX(5px);
