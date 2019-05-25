@@ -2,21 +2,21 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Reschedule <%= @employee_to_edit.first_name %>'s Shift</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <%= form_with url: "/work_shifts/edit/#{params[:employee_id]}", method: :patch do |form| %>
-          <%= form.label :starts_at %><br>
-          <%= form.datetime_select(:starts_at)%><br>
-          <%= form.label :ends_at %><br>
-          <%= form.datetime_select(:ends_at)%><br>
+          <%= form.label :starts_at %>
+          <%= form.datetime_select(:starts_at, ampm: true)%>
+          <%= form.label :ends_at %>
+          <%= form.datetime_select(:ends_at)%>
           <%= form.hidden_field :work_shift_id, value: params[:work_shift_id] %>
 
           <%= form.hidden_field :employee_id, value: params[:employee_id] %>
-          <%= form.submit %>
+          <%= form.submit class:"btn btn-md btn-primary" %>
         <% end %>
 
       </div>

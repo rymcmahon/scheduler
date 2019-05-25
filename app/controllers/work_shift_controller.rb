@@ -1,6 +1,9 @@
 class WorkShiftController < ApplicationController
   def index
     @work_shifts = WorkShift.all
+    if params[:employee_id]
+      @employee_to_edit = Employee.find(params[:employee_id])
+    end
 
     respond_to do |format|
       format.html
