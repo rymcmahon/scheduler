@@ -10,9 +10,9 @@
       <div class="modal-body">
         <%= form_with url: "/work_shifts/edit/#{params[:employee_id]}", method: :patch do |form| %>
           <%= form.label :starts_at %><br>
-          <%= form.date_select("starts_at")%><br>
+          <%= form.datetime_select(:starts_at)%><br>
           <%= form.label :ends_at %><br>
-          <%= form.date_select("ends_at")%><br>
+          <%= form.datetime_select(:ends_at)%><br>
           <%= form.hidden_field :work_shift_id, value: params[:work_shift_id] %>
 
           <%= form.hidden_field :employee_id, value: params[:employee_id] %>
